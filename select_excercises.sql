@@ -2,10 +2,14 @@
 USE albums_db;
 
 -- 3
--- a: 31 rows
+-- a: returns 31 rows
 SELECT * FROM albums;
+-- alt covered in class
+SELECT COUNT(*) FROM albums;
 -- b: 23 rows returned
 SELECT DISTINCT artist FROM albums;
+-- going off of the alt solution above
+SELECT COUNT(DISTINCT artist) FROM albums;
 -- c: primary key is id column
 DESCRIBE albums;
 -- d: earliest release 1967 and latest release 2011
