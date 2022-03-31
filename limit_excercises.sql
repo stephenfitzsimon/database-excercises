@@ -17,7 +17,7 @@ SELECT * FROM employees
 		AND hire_date BETWEEN '1990-01-01' AND '1999-12-31'
 	ORDER BY hire_date
     LIMIT 5 OFFSET 45;
--- Assuming that the OFFSET is a multiple of the LIMIT, determine which page we are on by the following:
+-- Assuming that the OFFSET is a multiple of the LIMIT, and PAGE is the page to display:
 -- OFFSET = LIMIT*(PAGE-1)
 -- to determine the page:
 -- PAGE = OFFSET/LIMIT + 1
