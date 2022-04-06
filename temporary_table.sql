@@ -100,3 +100,4 @@ UPDATE custom_salaries
 SELECT * FROM custom_salaries;
 -- make a column for the  z score
 ALTER TABLE custom_salaries ADD z_score DOUBLE;
+SELECT 
