@@ -48,3 +48,5 @@ SELECT AVG(s.salary) AS dept_grp_avg,
         JOIN departments AS d USING (dept_no)
 	WHERE s.to_date > NOW() AND de.to_date > NOW()
 	GROUP BY dept_grp;
+    
+select substr("hereisalongstring", 5, length("hereisalongstring")) from salaries;
