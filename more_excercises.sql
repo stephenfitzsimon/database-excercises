@@ -305,3 +305,54 @@ SELECT SUM(amount) AS revenue, name
 		
 -- part III
 
+-- 1.
+SELECT AVG(replacement_cost) FROM film;
+SELECT AVG(replacement_cost), rating FROM film
+	GROUP BY rating
+    ORDER BY rating;
+    
+-- 2.
+SELECT name, COUNT(film_id)
+	FROM category
+		JOIN film_category USING (category_id)
+    GROUP BY (category_id);
+    
+-- 3.
+SELECT COUNT(rental_id) AS rentals, title 
+	FROM rental
+		JOIN inventory USING (inventory_id)
+		JOIN film USING (film_id)
+    GROUP BY film_id
+    ORDER BY rentals DESC
+    LIMIT 5;
+
+-- 4.
+SELECT title, SUM(amount)
+	FROM payment
+		JOIN rental USING (rental_id)
+        JOIN inventory USING (inventory_id)
+        JOIN film USING (film_id)
+	GROUP BY film_id
+    ORDER BY SUM(amount) DESC;
+    
+-- 5.
+SELECT SUM(amount), CONCAT(last_name, ', ', first_name) AS name
+	FROM payment
+		JOIN customer USING (customer_id)
+    GROUP BY customer_id
+    ORDER BY SUM(amount) DESC
+    LIMIT 1;
+    
+-- 6.
+SELECT CONCAT(last_name, ', ', first_name) AS actor_name, COUNT(film_id)
+	FROM film_actor
+		JOIN actor USING (actor_id)
+	GROUP BY (actor_id)
+    ORDER BY COUNT(film_id) DESC
+    LIMIT 5;
+    
+-- 7.
+-- payment per store with payment date
+SELECT amount, store_id, payment_date
+	FROM payment
+     JOIN staff USING (staff_id);
